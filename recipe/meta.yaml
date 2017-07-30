@@ -22,13 +22,13 @@ requirements:
     - python
     - setuptools
     - toolchain
-    - numpy x.x
+    - numpy 1.8.*
     - flann 1.9.*
     - cython
     - pkg-config
   run:
     - python
-    - numpy x.x
+    - numpy >=1.8
     - flann 1.9.*
     - pkg-config
 
@@ -37,6 +37,8 @@ test:
     - cyflann
   commands:
     - nosetests --exe cyflann
+    - conda inspect linkages -p $PREFIX cyflann  # [not win]
+    - conda inspect objects -p $PREFIX cyflann  # [win]
   requires:
     - pyflann
     - cython
