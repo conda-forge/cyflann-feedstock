@@ -12,23 +12,21 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
-  script: python setup.py install --single-version-externally-managed --record record.txt
-  # Windows should work, but flann recipe isn't built there yet.
-  skip: true  # [win]
+  number: 3
+  script: python -m pip install --ignore-installed --no-deps .
 
 requirements:
   build:
     - python
-    - setuptools
+    - pip
     - toolchain
-    - numpy 1.8.*
+    - numpy 1.11.*
     - flann 1.9.1
     - cython
     - pkg-config
   run:
     - python
-    - numpy >=1.8
+    - numpy >=1.11
     - flann 1.9.1
     - pkg-config
 
