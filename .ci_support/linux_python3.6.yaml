@@ -1,4 +1,10 @@
+flann:
+- 1.9.1
+numpy:
+- '1.9'
 pin_run_as_build:
+  flann:
+    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
