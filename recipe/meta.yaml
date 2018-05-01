@@ -24,12 +24,14 @@ requirements:
     - cython
     - numpy 1.11.*
     - flann
-    - pkg-config  # [unix]
+    - pkg-config        # [unix]
+    - m2w64-pkg-config  # [win]
   run:
     - python
     - numpy >=1.11
     - {{ pin_compatible('flann', max_pin='x.x.x') }}
-    - pkg-config  # [unix]
+    - pkg-config        # [unix]
+    - m2w64-pkg-config  # [win]
 
 test:
   imports:
