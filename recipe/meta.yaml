@@ -17,12 +17,13 @@ build:
 
 requirements:
   build:
+    - {{ compiler('cxx') }}
+  host:
     - python
     - pip
-    - toolchain
+    - cython
     - numpy 1.11.*
     - flann 1.9.1
-    - cython
     - pkg-config  # [unix]
   run:
     - python
