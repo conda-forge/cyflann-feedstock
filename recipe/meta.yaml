@@ -22,14 +22,14 @@ requirements:
     - python
     - pip
     - cython
-    - numpy 1.11.*
+    - numpy
     - flann
     - pkg-config        # [unix]
     - m2w64-pkg-config  # [win]
   run:
     - python
-    - numpy >=1.11
-    - {{ pin_compatible('flann', max_pin='x.x.x') }}
+    - {{ pin_compatible('numpy') }}
+    - flann
     - pkg-config        # [unix]
     - m2w64-pkg-config  # [win]
 
