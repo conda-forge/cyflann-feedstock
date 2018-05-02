@@ -41,7 +41,7 @@ test:
   commands:
     - pytest --pyargs cyflann
     - conda inspect linkages -p $PREFIX cyflann  # [not win]
-    - conda inspect objects -p $PREFIX cyflann  # [win]
+    - conda inspect objects -p $PREFIX cyflann  # [osx]
   requires:
     - pyflann
     - cython
