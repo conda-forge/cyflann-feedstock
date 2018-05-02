@@ -20,7 +20,7 @@ build:
     - 'python {{ environ["RECIPE_DIR"] }}/dump_dir.py'
   # Windows VC9 doesn't work yet:
   # https://github.com/dougalsutherland/cyflann/issues/27
-  skip: true  # [win and vc9]
+  skip: true  # [win and vc==9]
 
 requirements:
   build:
