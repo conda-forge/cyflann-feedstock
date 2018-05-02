@@ -17,7 +17,7 @@ build:
     - export FLANN_DIR="$PREFIX"        # [unix]
     - set "FLANN_DIR=%LIBRARY_PREFIX%"  # [win]
     - python -m pip install --ignore-installed --no-deps .
-    - "python {{ environ['RECIPE_DIR'] }}/dump_dir.py"
+    - 'python {{ environ["RECIPE_DIR"] }}/dump_dir.py'
   # Windows VC9 doesn't work yet:
   # https://github.com/dougalsutherland/cyflann/issues/27
   skip: true  # [win and vc9]
