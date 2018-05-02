@@ -1,6 +1,6 @@
 {% set name = "cyflann" %}
-{% set version = "0.2.3" %}
-{% set sha256 = "a38cfdbaf7b4005f1f6ba417186f485483f78219bec5aa95f479f38551d234ae" %}
+{% set version = "0.2.4" %}
+{% set sha256 = "361012482bc8120784324587c9f61dad1264649661f1690bee2e9f8e3ba1d3cc" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   script: python setup.py install --single-version-externally-managed --record record.txt
   # Windows should work, but flann recipe isn't built there yet.
   skip: true  # [win]
