@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script:
     - export FLANN_DIR="$PREFIX"        # [unix]
     - set "FLANN_DIR=%LIBRARY_PREFIX%"  # [win]
@@ -24,6 +24,9 @@ build:
 
 requirements:
   build:
+    - {{ pin_compatible('numpy') }}
+    - {{ compiler('c') }}
+  host:
     - {{ compiler('cxx') }}
   host:
     - python
@@ -33,7 +36,6 @@ requirements:
     - cython
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - flann
 
 test:
