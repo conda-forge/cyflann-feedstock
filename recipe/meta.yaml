@@ -35,7 +35,6 @@ requirements:
     - python
     - {{ pin_compatible('numpy') }}
     - flann
-    - boost
 
 test:
   imports:
