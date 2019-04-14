@@ -44,6 +44,8 @@ test:
     - conda inspect linkages -p $PREFIX cyflann  # [not win]
     - conda inspect objects -p $PREFIX cyflann  # [osx]
   requires:
+    - {{ compiler("c") }}
+    - {{ compiler("cxx") }}
     - pyflann
     - cython
     - pytest
