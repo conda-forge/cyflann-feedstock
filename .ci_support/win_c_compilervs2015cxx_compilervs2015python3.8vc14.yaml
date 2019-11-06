@@ -1,3 +1,5 @@
+c_compiler:
+- vs2015
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -23,4 +25,5 @@ vc:
 zip_keys:
 - - python
   - vc
+  - c_compiler
   - cxx_compiler
