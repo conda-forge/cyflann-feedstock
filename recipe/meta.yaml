@@ -1,6 +1,6 @@
 {% set name = "cyflann" %}
-{% set version = "0.2.4" %}
-{% set sha256 = "361012482bc8120784324587c9f61dad1264649661f1690bee2e9f8e3ba1d3cc" %}
+{% set version = "0.2.5" %}
+{% set sha256 = "a78c304f5d7bc78971bcfe8ce2e661027f5f2810b5b0d313bb9a60ded1b518b6" %}
 
 package:
   name: {{ name|lower }}
@@ -16,14 +16,15 @@ build:
   script:
     - export FLANN_DIR="$PREFIX"        # [unix]
     - set "FLANN_DIR=%LIBRARY_PREFIX%"  # [win]
-    - python -m pip install --ignore-installed --no-deps .
-    - 'python {{ environ["RECIPE_DIR"] }}/dump_dir.py'
+    - "{{ PYTHON }} -m pip install . -vv"
+    - '{{ PYTHON }} {{ environ["RECIPE_DIR"] }}/dump_dir.py'
   # Windows VC9 doesn't work yet:
   # https://github.com/dougalsutherland/cyflann/issues/27
   skip: true  # [win and vc==9]
 
 requirements:
   build:
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -44,6 +45,8 @@ test:
     - conda inspect linkages -p $PREFIX cyflann  # [not win]
     - conda inspect objects -p $PREFIX cyflann  # [osx]
   requires:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - pyflann
     - cython
     - pytest
