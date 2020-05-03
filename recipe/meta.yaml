@@ -19,7 +19,7 @@ build:
     - "{{ PYTHON }} -m pip install . -vv"
     - '{{ PYTHON }} {{ environ["RECIPE_DIR"] }}/dump_dir.py'
   # Windows VC9 doesn't work yet:
-  # https://github.com/dougalsutherland/cyflann/issues/27
+  # https://github.com/djsutherland/cyflann/issues/27
   skip: true  # [win and vc==9]
 
 requirements:
@@ -52,7 +52,7 @@ test:
     - pytest
 
 about:
-  home: http://github.com/dougalsutherland/cyflann
+  home: http://github.com/djsutherland/cyflann
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
@@ -61,7 +61,7 @@ about:
     cyflann is a Cython interface to the FLANN library. Compared to
     the default pyflann interface, it allows you to run lots of independent
     searches without the GIL.
-  dev_url: https://github.com/dougalsutherland/cyflann
+  dev_url: https://github.com/djsutherland/cyflann
 
 extra:
   recipe-maintainers:
