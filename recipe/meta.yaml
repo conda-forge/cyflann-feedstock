@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script:
     - export FLANN_DIR="$PREFIX"        # [unix]
     - set "FLANN_DIR=%LIBRARY_PREFIX%"  # [win]
@@ -25,6 +25,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -34,7 +35,6 @@ requirements:
     - cython
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - flann
 
 test:
@@ -42,8 +42,6 @@ test:
     - cyflann
   commands:
     - pytest --pyargs cyflann
-    - conda inspect linkages -p $PREFIX cyflann  # [not win]
-    - conda inspect objects -p $PREFIX cyflann  # [osx]
   requires:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
